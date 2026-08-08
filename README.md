@@ -1,8 +1,8 @@
-# 🔎 Web Asset Discovery Tool
+#  Web Asset Discovery Tool
 
 A Python tool for discovering subdomains, IP addresses, and basic web information from a domain.
 
-## 🚀 Features
+##  Features
 
 * Subdomain enumeration using a custom wordlist
 * DNS resolution
@@ -16,7 +16,7 @@ A Python tool for discovering subdomains, IP addresses, and basic web informatio
 * Save results to a file
 * Simple command-line interface
 
-## ⚙️ Installation
+##  Installation
 
 Clone the repository:
 
@@ -36,7 +36,7 @@ Install the required dependency:
 pip install -r requirements.txt
 ```
 
-## ▶️ Usage
+##  Usage
 
 ### Basic Scan
 
@@ -68,7 +68,7 @@ python web_asset_discovery.py -d example.com -o results.txt
 python web_asset_discovery.py -d example.com -w wordlist.txt -t 30 -o results.txt
 ```
 
-## 📌 Command-Line Options
+##  Command-Line Options
 
 | Option             | Description            |
 | ------------------ | ---------------------- |
@@ -78,7 +78,7 @@ python web_asset_discovery.py -d example.com -w wordlist.txt -t 30 -o results.tx
 | `-o`, `--output`   | Save results to a file |
 | `-h`, `--help`     | Show help information  |
 
-## 📸 Screenshots
+##  Screenshots
 
 ### Tool Banner
 
@@ -92,6 +92,6 @@ python web_asset_discovery.py -d example.com -w wordlist.txt -t 30 -o results.tx
 
 ![Saved Results](screenshots/results.png)
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License.
