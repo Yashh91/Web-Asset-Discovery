@@ -5,6 +5,8 @@ import socket
 import requests
 from concurrent.futures import ThreadPoolExecutor
 
+from banner import show_banner
+
 
 def get_page_title(response):
     """Extract the page title from an HTTP response."""
@@ -27,11 +29,13 @@ def scan_asset(subdomain, domain):
 
     hostname = f"{subdomain}.{domain}"
 
+    # DNS resolution
     try:
         ip_address = socket.gethostbyname(hostname)
     except socket.gaierror:
         return None
 
+    # Check HTTPS first, then HTTP
     for scheme in ["https", "http"]:
 
         url = f"{scheme}://{hostname}"
@@ -59,6 +63,7 @@ def scan_asset(subdomain, domain):
         except requests.RequestException:
             continue
 
+    # Host resolves but no HTTP/HTTPS response
     return {
         "hostname": hostname,
         "ip": ip_address,
@@ -69,6 +74,9 @@ def scan_asset(subdomain, domain):
 
 
 def main():
+
+    # Display banner
+    show_banner()
 
     parser = argparse.ArgumentParser(
         description="Web Asset Discovery Tool"
@@ -106,10 +114,6 @@ def main():
 
     domain = args.domain.strip()
 
-    print("\n" + "=" * 70)
-    print("                 WEB ASSET DISCOVERY TOOL")
-    print("=" * 70)
-
     print(f"[*] Target   : {domain}")
     print(f"[*] Wordlist : {args.wordlist}")
     print(f"[*] Threads  : {args.threads}")
@@ -117,10 +121,16 @@ def main():
     if args.output:
         print(f"[*] Output   : {args.output}")
 
-    print("=" * 70)
+    print("-" * 70)
 
+    # Load wordlist
     try:
-        with open(args.wordlist, "r", encoding="utf-8") as file:
+        with open(
+            args.wordlist,
+            "r",
+            encoding="utf-8"
+        ) as file:
+
             subdomains = [
                 line.strip()
                 for line in file
@@ -128,14 +138,15 @@ def main():
             ]
 
     except FileNotFoundError:
-        print(f"\n[-] Wordlist not found: {args.wordlist}")
+        print(f"[-] Wordlist not found: {args.wordlist}")
         return
 
-    print(f"\n[*] Loaded {len(subdomains)} subdomains")
+    print(f"[*] Loaded {len(subdomains)} subdomains")
     print("[*] Starting discovery...\n")
 
     discovered_assets = []
 
+    # Multithreaded scanning
     with ThreadPoolExecutor(
         max_workers=args.threads
     ) as executor:
@@ -169,6 +180,7 @@ def main():
     )
     print("=" * 70)
 
+    # Save results
     if args.output:
 
         try:
@@ -179,12 +191,9 @@ def main():
             ) as file:
 
                 file.write(
-                    "Web Asset Discovery Results\n"
+                    "WEB ASSET DISCOVERY RESULTS\n"
                 )
-
-                file.write(
-                    "=" * 70 + "\n\n"
-                )
+                file.write("=" * 70 + "\n\n")
 
                 for asset in discovered_assets:
 
@@ -211,7 +220,7 @@ def main():
                     file.write("-" * 70 + "\n")
 
             print(
-                f"\n[+] Results saved to {args.output}"
+                f"[+] Results saved to {args.output}"
             )
 
         except OSError as error:
