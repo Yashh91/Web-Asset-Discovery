@@ -90,7 +90,7 @@ python web_asset_discovery.py -d example.com -w wordlist.txt -t 30 -o results.tx
 
 ### Saved Results
 
-<img width="1087" height="295" alt="image" src="https://github.com/user-attachments/assets/8349a87d-bd57-4434-b532-90f495b11eb5" />
+<img width="1087" height="295" alt="image" src="https://github.com/user-attachments/assets/5982b009-1033-496a-9efd-622b8f3324ab" />
 
 ##  License
 
