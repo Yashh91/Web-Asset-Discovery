@@ -21,13 +21,13 @@ A Python tool for discovering subdomains, IP addresses, and basic web informatio
 Clone the repository:
 
 ```bash
-git clone https://github.com/Yashh91/Web-Asset-Discovery-Tool.git
+git clone https://github.com/Yashh91/Web-Asset-Discovery.git
 ```
 
 Open the project folder:
 
 ```bash
-cd Web-Asset-Discovery-Tool
+cd Web-Asset-Discovery
 ```
 
 Install the required dependency:
