@@ -82,15 +82,15 @@ python web_asset_discovery.py -d example.com -w wordlist.txt -t 30 -o results.tx
 
 ### Tool Banner
 
-![Tool Banner](screenshots/banner.png)
+<img width="1207" height="302" alt="image" src="https://github.com/user-attachments/assets/47a0abba-c05e-4311-b8fc-13b77288437b" />
 
 ### Asset Discovery
 
-![Asset Discovery](screenshots/scan-result.png)
+<img width="1280" height="625" alt="image" src="https://github.com/user-attachments/assets/ef3de7c5-a6e5-462e-abd3-244081e15e63" />
 
 ### Saved Results
 
-![Saved Results](screenshots/results.png)
+<img width="1087" height="295" alt="image" src="https://github.com/user-attachments/assets/8349a87d-bd57-4434-b532-90f495b11eb5" />
 
 ##  License
 
