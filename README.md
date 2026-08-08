@@ -1,4 +1,4 @@
-#  // Web Asset Discovery Tool
+#  Web Asset Discovery Tool
 
 A Python tool for discovering subdomains, IP addresses, and basic web information from a domain.
 
